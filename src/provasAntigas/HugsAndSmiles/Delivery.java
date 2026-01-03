@@ -1,4 +1,4 @@
-package provasAntigas.HugsAndSmiles.src;
+package provasAntigas.HugsAndSmiles;
 
 import java.util.Objects;
 

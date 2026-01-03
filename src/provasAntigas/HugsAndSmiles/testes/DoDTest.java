@@ -1,18 +1,21 @@
 package provasAntigas.HugsAndSmiles.testes;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import provasAntigas.HugsAndSmiles.src.*;
+import provasAntigas.HugsAndSmiles.Cliente;
+import provasAntigas.HugsAndSmiles.Delivery;
+import provasAntigas.HugsAndSmiles.DoD;
 
 public class DoDTest {
 	
 	private DoD dod;
 	private Cliente[] clientes;
 	
-	//Considerando apenas 2 clientes, no lugar de 50
+	//Considerando apenas 2 clientes, no lugar de 50, como a prova indicava
 	@BeforeEach
 	public void setUp() {
 		this.clientes = new Cliente[]{new Cliente(1, "Pedro", "R. João Julião, num. 288"), 

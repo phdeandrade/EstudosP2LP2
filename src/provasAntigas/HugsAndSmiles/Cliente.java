@@ -1,4 +1,4 @@
-package provasAntigas.HugsAndSmiles.src;
+package provasAntigas.HugsAndSmiles;
 
 public class Cliente {
 	private int id;
