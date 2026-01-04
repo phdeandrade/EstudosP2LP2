@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import provasAntigas.HugsAndSmiles.*;
 
-public class DoDTest {
+public class DeliveryOfDayTest {
 	
-	private DoD dod;
+	private DeliveryOfDay dod;
 	private Cliente[] clientes;
 	
 	//Considerando apenas 2 clientes, no lugar de 50, como a prova indicava
@@ -18,7 +18,7 @@ public class DoDTest {
 	public void setUp() {
 		this.clientes = new Cliente[]{new Cliente(1, "Pedro", "R. João Julião, num. 288"), 
 				new Cliente(2, "Milena", "R. Augusto dos Anjos num. 18")};
-		this.dod = new DoD(clientes);
+		this.dod = new DeliveryOfDay(clientes);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ public class DoDTest {
  	
 	@Test
 	public void addDeliveryAtFullCappacityTest() {
-		DoD dod2 = new DoD(this.clientes, 2);
+		DeliveryOfDay dod2 = new DeliveryOfDay(this.clientes, 2);
 		Delivery d1 = new Delivery("Lenços", "HUGGIES", 1);
 		Delivery d2 = new Delivery("Lenços", "HUGGIES", 2);
 		dod2.addDelivery(d1);

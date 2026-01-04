@@ -1,17 +1,17 @@
 package provasAntigas.HugsAndSmiles;
 
-public class DoD {
+public class DeliveryOfDay {
 	private Cliente[] clientes;
 	private Delivery[] entregas;
 	private int iEntregas;
 	
-	public DoD(Cliente[] clientes) {
+	public DeliveryOfDay(Cliente[] clientes) {
 		this.clientes = clientes;
 		this.entregas = new Delivery[6];
 		this.iEntregas = 0;
 	}
 	
-	public DoD(Cliente[] clientes, int capacidadeMaxima) {
+	public DeliveryOfDay(Cliente[] clientes, int capacidadeMaxima) {
         this.clientes = clientes;
         this.entregas = new Delivery[capacidadeMaxima]; 
         this.iEntregas = 0;
