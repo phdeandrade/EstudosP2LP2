@@ -11,7 +11,9 @@ public class Vaga {
 	private boolean ocupada;
 	
 	public Vaga(String setor, int posicao) {
-		super();
+		if (posicao < 0) {
+			throw new IllegalArgumentException("Posição negativa");
+		}
 		this.setor = setor;
 		this.posicao = posicao;
 		this.ocupada = false;
@@ -36,8 +38,26 @@ public class Vaga {
 
 	@Override
 	public String toString() {
-		return "Vaga [setor=" + setor + ", posicao=" + posicao + ", ocupada=" + ocupada + "]";
+		String ocupada = "";
+		if (this.ocupada) {
+			ocupada = "Ocupada";
+		} else {
+			ocupada = "Livre";
+		}
+		return "Localização: " + this.getLocalizacao() + ", Estado: "+ ocupada;
 	}
+	
+	public void estacionar(String placa, LocalTime hora) {
+        this.placa = placa;
+        this.hora = hora;
+        this.ocupada = true;
+    }
+
+    public void liberar() {
+        this.placa = null;
+        this.hora = null;
+        this.ocupada = false;
+    }
 
 	public String getPlaca() {
 		return this.placa;
@@ -69,6 +89,10 @@ public class Vaga {
 
 	public void setOcupada(boolean ocupada) {
 		this.ocupada = ocupada;
+	}
+	
+	public String getLocalizacao() {
+		return this.setor + this.posicao;
 	}
 	
 }

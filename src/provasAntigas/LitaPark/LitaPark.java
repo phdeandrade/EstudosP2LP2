@@ -4,47 +4,80 @@ import java.time.LocalTime;
 
 public class LitaPark {
 	private Vaga[] vagas;
-	private int iVagas;
+	private double lucro;
 	
 	public LitaPark(int quantidade) {
 		this.vagas = new Vaga[quantidade];
-		this.iVagas = 0;
+		this.lucro = 0.0;
+		for (int i = 0; i < quantidade; i++) {
+			this.vagas[i] = new Vaga("A", i + 1);
+		}
 	}
 	
 	public LitaPark() {
-		this.vagas = new Vaga[50];
-		this.iVagas = 0;
+		this(50);
 	}
 	
 	public boolean estacionarCarroVaga(LocalTime hora, String placa) {
-		if (this.iVagas ++ >= vagas.length ) {
-			return false;
-		}
-		this.vagas[this.iVagas].setHora(hora);
-		this.vagas[this.iVagas].setPlaca(placa);
-		this.vagas[this.iVagas].setOcupada(true);
-		this.iVagas++;
-		return true;
-	}
-	
-	public double liberarVaga(String placa) {
-		int pos = 0;
-		for (int i = 0; i <= this.iVagas; i++) {
-			if (this.vagas[i].getPlaca().equals(placa)) {
-				pos = i;
+		for (int i = 0; i < this.vagas.length; i++) {
+			if (! this.vagas[i].isOcupada()) {
+				this.vagas[i].estacionar(placa, hora);
+				return true;
 			}
 		}
-		int hora = this.vagas[pos].getHora().getHour();
-		int minutos = this.vagas[pos].getHora().getMinute();
-		LocalTime fim = LocalTime.of(hora + 1, minutos + 1);
-		int intervaloDeTempo = fim.getHour() - this.vagas[pos].getHora().getHour();
-		this.vagas[pos].setHora(null);
-		this.vagas[pos].setPlaca(null);
-		this.vagas[pos].setOcupada(false);
-		if (intervaloDeTempo - 2 == 0) {
-			return 5.0;
-		} else {
-			return (intervaloDeTempo - 2) + 5.0;
-		}
+		return false;
 	}
+	
+	public double liberarVaga(String placa, LocalTime horaSaida) {
+        int i = 0;
+        int pos = -1;
+        while (i < this.vagas.length) {
+            if (this.vagas[i].isOcupada() && this.vagas[i].getPlaca().equals(placa)) {
+                pos = i;
+                break;
+            }
+            i++;
+        }
+
+        if (pos == -1) return 0.0;
+
+        Vaga vaga = this.vagas[pos];
+        int horas = horaSaida.getHour() - vaga.getHora().getHour();
+        if (horaSaida.getMinute() > vaga.getHora().getMinute()) {
+            horas++;
+        }
+
+        double valor = 5.0;
+        if (horas > 2) {
+            valor += (horas - 2) * 1.0;
+        }
+
+        this.lucro += valor;
+        this.vagas[pos].liberar();
+        return valor;
+    }
+	
+	public String painelVagasLivres() {
+		String painel = "Vagas Livres: \n";
+		for (int i = 0; i < this.vagas.length; i++) {
+			if (!this.vagas[i].isOcupada()) {
+				painel += this.vagas[i].toString();
+			}
+		}
+		return painel;
+	}
+	
+	public String localizarCarro(String placa) {
+		for (int i = 0; i < this.vagas.length; i++) {
+			if (this.vagas[i].getPlaca().equals(placa)) {
+				return this.vagas[i].getLocalizacao();
+			}
+		}
+		return "Não encontrado";
+	}
+	
+	public String imprimirLucroTotal() {
+		return "Lucro total do LitaPark: \nR$" + this.lucro;
+	}
+	
 }

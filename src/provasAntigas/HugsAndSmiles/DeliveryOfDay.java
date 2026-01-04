@@ -65,5 +65,4 @@ public class DeliveryOfDay {
 		}
 		return false;
 	}
-	
 }
