@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import provasAntigas.HugsAndSmiles.Cliente;
-import provasAntigas.HugsAndSmiles.Delivery;
-import provasAntigas.HugsAndSmiles.DoD;
+import provasAntigas.HugsAndSmiles.*;
 
 public class DoDTest {
 	
