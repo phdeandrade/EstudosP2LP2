@@ -69,7 +69,7 @@ public class LitaPark {
 	
 	public String localizarCarro(String placa) {
 		for (int i = 0; i < this.vagas.length; i++) {
-			if (this.vagas[i].getPlaca().equals(placa)) {
+			if (this.vagas[i].isOcupada() && this.vagas[i].getPlaca().equals(placa)) {
 				return this.vagas[i].getLocalizacao();
 			}
 		}
