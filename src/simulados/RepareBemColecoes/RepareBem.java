@@ -28,7 +28,7 @@ public class RepareBem {
 	    }
 	    int pos = buscaReparoId(idReparo);
 	    if (pos == -1) {
-	        throw new IllegalArgumentException("Reparo não encontrado"); // Obrigatório lançar exceção
+	        throw new IllegalArgumentException("Reparo não encontrado"); 
 	    }
 	    this.reparos.get(pos).ajustePercentual(percentual);
 	}
@@ -57,7 +57,7 @@ public class RepareBem {
 	    int pos = buscaReparoId(idReparo);
 	    
 	    if (pos == -1) {
-	        throw new IllegalArgumentException("Reparo não encontrado"); // Obrigatório lançar exceção
+	        throw new IllegalArgumentException("Reparo não encontrado"); 
 	    }
 	    
 	    this.ordensDeServico.get(idOS - 1).adicionarReparo(this.reparos.get(pos));
@@ -101,12 +101,16 @@ public class RepareBem {
 		return lista;
 	}
 	
-	private int buscaReparoId(String id) {
+	public int buscaReparoId(String id) {
 		for (int i = 0; i < this.reparos.size(); i++) {
 			if (this.reparos.get(i).getId().equals(id)) {
 				return i;
 			}
 		}
 		return -1;
+	}
+	
+	public List<Reparo> getReparos() {
+		return this.reparos;
 	}
 }
