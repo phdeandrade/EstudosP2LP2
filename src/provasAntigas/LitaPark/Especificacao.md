@@ -10,5 +10,5 @@ Texto de especificação: [Texto](https://docs.google.com/document/d/e/2PACX-1vS
 
 ### Diagrama UML
 
-![Diagrama UML do LitaPark](https://drive.google.com/file/d/190QxiA9DWHCKt03_NNb1A71PYVAU3ZX5/view?usp=sharing)
+![Diagrama UML do LitaPark](/home/ph/Downloads/uml.png)
 
