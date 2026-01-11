@@ -44,10 +44,11 @@ public class Vaga {
 		} else {
 			ocupada = "Livre";
 		}
-		return "Localização: " + this.getLocalizacao() + ", Estado: "+ ocupada;
+		return "Localização: " + this.retornaLocalizacao() + ", Estado: "+ ocupada;
 	}
 	
 	public void estacionar(String placa, LocalTime hora) {
+		if (this.ocupada)
         this.placa = placa;
         this.hora = hora;
         this.ocupada = true;
@@ -91,7 +92,7 @@ public class Vaga {
 		this.ocupada = ocupada;
 	}
 	
-	public String getLocalizacao() {
+	public String retornaLocalizacao() {
 		return this.setor + this.posicao;
 	}
 	

@@ -57,7 +57,7 @@ public class LitaPark {
         return valor;
     }
 	
-	public String painelVagasLivres() {
+	public String exibirPainelVagasLivres() {
 		String painel = "Vagas Livres: \n";
 		for (int i = 0; i < this.vagas.length; i++) {
 			if (!this.vagas[i].isOcupada()) {
@@ -70,14 +70,14 @@ public class LitaPark {
 	public String localizarCarro(String placa) {
 		for (int i = 0; i < this.vagas.length; i++) {
 			if (this.vagas[i].isOcupada() && this.vagas[i].getPlaca().equals(placa)) {
-				return this.vagas[i].getLocalizacao();
+				return this.vagas[i].retornaLocalizacao();
 			}
 		}
 		return "Não encontrado";
 	}
 	
-	public String imprimirLucroTotal() {
-		return "Lucro total do LitaPark: \nR$" + this.lucro;
+	public double imprimirLucroTotal() {
+		return this.lucro;
 	}
 	
 }
