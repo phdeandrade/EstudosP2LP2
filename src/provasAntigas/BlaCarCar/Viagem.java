@@ -91,5 +91,25 @@ public class Viagem {
 	public String getContato() {
 		return contato;
 	}
+
+	public void setMotorista(String motorista) {
+		this.motorista = motorista;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setVagas(int vagas) {
+		this.vagas = vagas;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+
+	public void setPontosParada(String[] pontosParada) {
+		this.pontosParada = pontosParada;
+	}
 	
 }
