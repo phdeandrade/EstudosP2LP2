@@ -12,3 +12,53 @@ Texto de especificação: [Texto](https://docs.google.com/document/d/e/2PACX-1vS
 
 ![Diagrama UML do LitaPark](../../../diagramas/uml.png)
 
+### Notação Modeligado
+
+```text
+association LitaPark
+---
+---
++ main(args: String[]): void
+---
+
+
+LitaPark
+composes Vaga
+---
+- vagas: Vaga
+- lucro: double
+---
++ LitaPark(int: quantidade)
++ LitaPark()
++ estacionarCarroVaga(hora: LocalTime, String: placa): boolean
++ liberarVaga(LocalTime: hora, String: placa): boolean
++ exibirPainelVagasLivres(): String
++ localizarCarro(String: placa): String
++ imprimirLucroTotal(): double
+---
+
+Vaga
+---
+- placa: String
+- hora: LocalTime
+- setor: String
+- posicao: int
+- ocupada: boolean
+---
++ Vaga(String: setor, int: posicao)
++ hashCode(): int
++ equals(Object: o): boolean
++ toString(): String
++ estacionar(String: placa, LocalTime: hora): void
++ liberar(): void
++ getPlaca(): String
++ getHora(): LocalTime
++ getSetor(): String
++ getPosicao(): int
++ isOcupada(): boolean
++ setPlaca(String: placa): void
++ setOcupada(boolean: ocupada): void
++ getLocalizacao(): String
+---
+```
+
