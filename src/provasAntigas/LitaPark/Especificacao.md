@@ -14,7 +14,8 @@ Texto de especificação: [Texto](https://docs.google.com/document/d/e/2PACX-1vS
 
 ### Notação Modeligado
 
-```text
+```
+Main
 association LitaPark
 ---
 ---
@@ -36,6 +37,7 @@ composes Vaga
 + localizarCarro(String: placa): String
 + imprimirLucroTotal(): double
 ---
+
 
 Vaga
 ---
@@ -61,4 +63,3 @@ Vaga
 + getLocalizacao(): String
 ---
 ```
-
