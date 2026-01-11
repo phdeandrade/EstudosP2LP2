@@ -15,7 +15,7 @@ public class BlaCarCar {
 	public int cadastrarViagem(String motorista, String descricao, int vagas, String contato, String[] pontos) {
 		Viagem rota = new Viagem(motorista, descricao, vagas, contato, pontos);
 		this.rotas.add(rota);
-		return this.rotas.indexOf(rota);
+		return this.rotas.indexOf(rota) + 1;
 	}
 	
 	public boolean cadastrarPassageiro(String nome, String cpf, String link, String[] pontos) {
@@ -51,28 +51,28 @@ public class BlaCarCar {
 	}
 	
 	public void solicitarVaga(String cpf, int indexViagem) {
-		this.passageiros.get(buscaPassageiroCPF(cpf)).solicitarVaga(this.rotas.get(indexViagem));
+		this.passageiros.get(buscaPassageiroCPF(cpf)).solicitarVaga(this.rotas.get(indexViagem - 1));
 	}
 	
 	public String[] listarPassageirosInscritosViagem(int indexViagem) {
-		return this.rotas.get(indexViagem).getArrayInscritos();
+		return this.rotas.get(indexViagem - 1).getArrayInscritos();
 	}
 	
 	public String[] listarPassageirosConfirmadosViagem(int indexViagem) {
-		return this.rotas.get(indexViagem).getArrayConfirmados();
+		return this.rotas.get(indexViagem - 1).getArrayConfirmados();
 	}
 	
 	public int calcularCompatibilidade(String cpf, int indexViagem) {
-		return this.passageiros.get(buscaPassageiroCPF(cpf)).calculaCompatibilidadeRota(this.rotas.get(indexViagem));
+		return this.passageiros.get(buscaPassageiroCPF(cpf)).calculaCompatibilidadeRota(this.rotas.get(indexViagem - 1));
 	}
 	
 	public String[] listarPassageirosInscritosCompativeis(int indexViagem, int compatibilidade) {
-		return this.rotas.get(indexViagem).getInscritosCompativeis(compatibilidade);
+		return this.rotas.get(indexViagem - 1).getInscritosCompativeis(compatibilidade);
 	}
 	
 	public String[] confirmarPassageiros(int indexViagem, int compatibilidade) {
-		this.rotas.get(indexViagem).confirmarInscritos(compatibilidade);
-		return this.rotas.get(indexViagem).getArrayConfirmados();
+		this.rotas.get(indexViagem - 1).confirmarInscritos(compatibilidade);
+		return this.rotas.get(indexViagem - 1).getArrayConfirmados();
 	}
 	
 	private int buscaPassageiroCPF(String cpf) {
