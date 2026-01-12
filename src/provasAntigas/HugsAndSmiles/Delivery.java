@@ -37,8 +37,8 @@ public class Delivery {
 
 	@Override
 	public String toString() {
-		return "Delivery [produto=" + produto + ", fornecedor=" + fornecedor + ", idCliente=" + idCliente + ", status="
-				+ status + "]";
+		return String.format("Delivery [produto=%s, fornecedor=%s, idCliente=%s, status=%s]", produto, fornecedor,
+				idCliente, status);
 	}
 
 	public String getStatus() {

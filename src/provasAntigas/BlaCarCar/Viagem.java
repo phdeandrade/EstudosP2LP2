@@ -1,7 +1,9 @@
 package provasAntigas.BlaCarCar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Viagem {
 	private String motorista;
@@ -23,6 +25,37 @@ public class Viagem {
 		this.confirmados = new ArrayList<Passageiro>();
 	}
 	
+	/*
+	 * Não foi pedido para implementar os métodos básicos de Java para essa classe,
+	 * mas decidi gerá-los automaticamente com o Eclipse
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(pontosParada);
+		result = prime * result + Objects.hash(motorista);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Viagem other = (Viagem) obj;
+		return Objects.equals(motorista, other.motorista) && Arrays.equals(pontosParada, other.pontosParada);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Motorista: Nome: %s; Contato: %s; Pontos de Parada: %s; Vagas: %s.", motorista, contato,
+				Arrays.toString(pontosParada), vagas);
+	}
+
 	public boolean adicionarInscrito(Passageiro passageiro) {
 		if (this.confirmados.size() == vagas) {
 			return false;

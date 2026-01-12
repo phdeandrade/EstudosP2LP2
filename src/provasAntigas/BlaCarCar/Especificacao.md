@@ -10,7 +10,7 @@ Texto de especificação: [Texto](https://docs.google.com/document/d/e/2PACX-1vS
 
 ## Diagrama UML
 
-![Diagrama UML do BlaCarCar](../../../diagramas/diagramaBlaCarCar.png)
+![Diagrama UML do BlaCarCar](../../diagramas/diagramaBlaCarCar.png)
 
 ## Notação Modeligado
 

@@ -10,7 +10,7 @@ Texto de especificação: [Texto](https://docs.google.com/document/d/e/2PACX-1vS
 
 ## Diagrama UML do Sistema
 
-![Diagrama UML do LitaPark](../../../diagramas/diagramaLitaPark.png)
+![Diagrama UML do LitaPark](../../diagramas/diagramaLitaPark.png)
 
 ## Notação Modeligado
 
