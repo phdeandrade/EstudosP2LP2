@@ -2,8 +2,8 @@ package provasAntigas.LitaPark.testes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.time.LocalTime;
 
@@ -41,12 +41,7 @@ public class VagaTest {
 	
 	@Test
 	public void lancamentoDeExcecaoTest() {
-		try {
-			Vaga vaga = new Vaga("A", -1);
-			fail("Isso deveria lançar uma exceção");
-		} catch (IllegalArgumentException iae) {
-			iae.getMessage();
-		}
+		assertThrows(IllegalArgumentException.class, () -> { new Vaga("A", -1); });
 	}
 	
 	@Test
