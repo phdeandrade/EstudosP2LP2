@@ -1,0 +1,66 @@
+package provasAntigas.LP2.LitaPark.testes;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.time.LocalTime;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import provasAntigas.LP2.LitaPark.Vaga;
+
+public class VagaTest {
+	
+	private Vaga vagaBase;
+
+	@BeforeEach
+	public void setUp() {
+		this.vagaBase = new Vaga("A", 1);
+	}
+	
+	@Test
+	public void construtorPosicaInvalida() {
+		assertThrows(IllegalArgumentException.class, () -> { new Vaga("A", -1); });
+	}
+
+	@Test
+	public void EqualsVagasIguaisTest() {
+		Vaga vaga = new Vaga("A", 1);
+		assertTrue(vagaBase.equals(vaga));
+	}
+	
+	@Test
+	public void EqualsVagasSetorDiferenteTest() {
+		Vaga vaga = new Vaga("B", 1);
+		assertFalse(vagaBase.equals(vaga));
+	}
+	
+	@Test
+	public void EqualsVagasPosicaoDiferenteTest() {
+		Vaga vaga = new Vaga("A", 2);
+		assertFalse(vagaBase.equals(vaga));
+	}
+	
+	@Test
+	public void lancamentoDeExcecaoTest() {
+		assertThrows(IllegalArgumentException.class, () -> { new Vaga("A", -1); });
+	}
+	
+	@Test
+	public void estacionarTest() {
+		vagaBase.estacionar("ABCDEF", LocalTime.now());
+		assertEquals("Localização: A1, Estado: Ocupada", vagaBase.toString());
+	}
+	
+	@Test
+	public void liberarVaga() {
+		vagaBase.estacionar("ABCDEF", LocalTime.now());
+		vagaBase.liberar();
+		assertEquals("Localização: A1, Estado: Livre", vagaBase.toString());
+	}
+
+}
